@@ -1,13 +1,10 @@
 # Využitie hlbokého učenia pre spracovanie a analýzu ionosférických dát
 
-Diplomová práca
+__Diplomová práca__
 
 Bc. Silvia Kostárová
 
-Technická univerzita v Košiciach
-
-Fakulta elektrotechniky a informatiky
-
-Študijný program: Hospodárska informatika
-
+Technická univerzita v Košiciach\n
+Fakulta elektrotechniky a informatiky\n
+Študijný program: Hospodárska informatika\n
 Školiace pracovisko: Katedra kybernetiky a umelej inteligencie
