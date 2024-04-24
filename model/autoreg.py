@@ -1,3 +1,4 @@
+# import
 from tensorflow import keras
 from keras.models import Sequential
 from keras.layers import Dense, Activation, Dropout, Input, Conv1D, LSTM, MaxPooling1D, Flatten, concatenate, TimeDistributed, Bidirectional, ConvLSTM2D
@@ -9,14 +10,19 @@ from sklearn.metrics import confusion_matrix, classification_report, mean_absolu
 import os
 import numpy as np
 
+# settings
 model_name = "autoreg"
 f_name = f"data/{model_name}"
 f_data = "shift-15-windows-45"
+
+# data loading
 X_train = np.load(f'{f_name}/{f_data}/X_train_min.npy', allow_pickle=True)
 y_train = np.load(f'{f_name}/{f_data}/y_train.npy', allow_pickle=True)
 
+# select data
 Phi60_Sig1 = X_train["Phi60_Sig1"]
 
+# model architecture
 inputs_Phi60_Sig1 = Input(shape=(Phi60_Sig1.shape[1],1))
 a = Bidirectional(LSTM(128, dropout=0.1,recurrent_dropout=0.1))(inputs_Phi60_Sig1)
 a = Dense(64, activation='relu')(a)
@@ -36,6 +42,7 @@ saved_model = "/epoch-{epoch:02d}-mae-{val_mae:.4f}.hdf5"
 checkpoint = ModelCheckpoint(model_f_name + saved_model, monitor='val_mae', verbose=1, save_freq="epoch")
 callbacks_list = [checkpoint]
 
+# training
 history = model.fit(
     x=Phi60_Sig1,
     y=y_train,
