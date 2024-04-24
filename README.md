@@ -51,10 +51,12 @@ Na vytvorenie predikovaných hodnôt z modelov uvedených v priečinku [model](h
 V prípade opätovného trénovania a ukladania všetkých epoch je možné robiť predikcie pre modely používateľom vybraných konkrétnych epoch pomocou nasledujúcich skriptov: [`pred_autoreg.py`](https://github.com/skostarova/Diplomovy_projekt_Kostarova/blob/main/prediction/pred_autoreg.py), [`pred_multiNN.py`](https://github.com/skostarova/Diplomovy_projekt_Kostarova/blob/main/prediction/pred_multiNN.py), [`pred_multiNN_4param.py`](https://github.com/skostarova/Diplomovy_projekt_Kostarova/blob/main/prediction/pred_multiNN_4param.py).
 
 ### 1. 4. Post-processing
+Prvým variantom post-processingu je metóda smoothing. Konkrétne vybrané metódy boli aplikované pomocou skriptu [`smoothing.ipynb`](https://github.com/skostarova/Diplomovy_projekt_Kostarova/blob/main/post_processing/smoothing.ipynb).
 
+Druhým variantom je aplikovanie variačného koeficientu (CoV). Jeho výpočet je možný prostredníctvom skriptu [`create_cov_evaluation.ipynb`](https://github.com/skostarova/Diplomovy_projekt_Kostarova/blob/main/post_processing/create_cov_evaluation.ipynb). Výsledný dataframe sa uloží, kvôli veľkosti súborov sú tieto súbory dostupné [tu](https://mega.nz/folder/Nb1SGDzA#ILZCNLN0epyc9HIgfeLWVA).
 
 ### 1. 5. Vyhodnotenie
 Vyhodnotenie prebieha na vytvorených datasetoch v priečinku [post_processing](https://github.com/skostarova/Diplomovy_projekt_Kostarova/tree/main/post_processing). Slúži na to skript [`metrics_cov.ipynb`](https://github.com/skostarova/Diplomovy_projekt_Kostarova/blob/main/evaluation/metrics_cov.ipynb), v ktorom je definovaná funkcia `metrics(true, pred)` na vypočítanie jednotlivých metrík. V skripte je možnosť meniť nastavenia hraničných hodnôt pre CoV. Výsledky vyhodnotenia sa uložia do súboru s označením <code>*{model}*.csv</code>. Vizualizácia priebehu jednotlivých metrík podľa CoV je taktiež ukladaná do súborov s označením <code>*{model}*.png</code>.
 
 ### 1. 6. Vizualizácie
-
+Vizualizácie nám slúžia na porovnanie predikcií modelov a vizualizáciu vyhodnotenia binárnej klasifikácie.
