@@ -1,6 +1,6 @@
 # FOR multiNN only MINUTE FEATURES
 
-
+# import
 from tensorflow import keras
 from keras.preprocessing.sequence import TimeseriesGenerator
 from keras.models import Sequential
@@ -14,6 +14,7 @@ import os
 import numpy as np
 import pickle
 
+# settings
 model_name = "PC"  # can be changed for PC, AsyH, BzGSE
 f_data=f"{model_name}/shift-15-windows-45"
 f_name=f"newModel/{f_data}/"
@@ -55,12 +56,13 @@ classifier = Model(inputs=[input_kp, input_Phi60], outputs=output)
 classifier.compile(loss='mse', optimizer="adam", metrics=['mae'])  
 print(classifier.summary())
 
-
+# callbacks
 os.makedirs(f_name, exist_ok=True)
 saved_model = "/epoch-{epoch:02d}-mae-{val_mae:.4f}.hdf5"
 checkpoint = ModelCheckpoint(f_name+saved_model, monitor='val_mae', verbose=1, save_freq="epoch")
 callbacks_list = [checkpoint]
 
+# training
 history = classifier.fit(
     x=[X_param_model, X_min_model],
     y=y_train,
