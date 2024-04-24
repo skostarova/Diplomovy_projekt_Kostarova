@@ -54,7 +54,7 @@ V prípade opätovného trénovania a ukladania všetkých epoch je možné robi
 
 
 ### 1. 5. Vyhodnotenie
-Vyhodnotenie prebieha na vytvorených datasetoch v priečinku [post_processing](https://github.com/skostarova/Diplomovy_projekt_Kostarova/tree/main/post_processing). Slúži na to skript [`metrics_cov.ipynb`](https://github.com/skostarova/Diplomovy_projekt_Kostarova/blob/main/evaluation/metrics_cov.ipynb), v ktorom je definovaná funkcia `metrics(true, pred)` na vypočítanie jednotlivých metrík. V skripte je možnosť meniť nastavenia hraničných hodnôt pre CoV. Výsledky vyhodnotenia sa uložia do súboru s označením <code>*{model}*.csv<\code>. Vizualizácia priebehu jednotlivých metrík podľa CoV je taktiež ukladaná do súborov s označením <code>*{model}*.png<\code>.
+Vyhodnotenie prebieha na vytvorených datasetoch v priečinku [post_processing](https://github.com/skostarova/Diplomovy_projekt_Kostarova/tree/main/post_processing). Slúži na to skript [`metrics_cov.ipynb`](https://github.com/skostarova/Diplomovy_projekt_Kostarova/blob/main/evaluation/metrics_cov.ipynb), v ktorom je definovaná funkcia `metrics(true, pred)` na vypočítanie jednotlivých metrík. V skripte je možnosť meniť nastavenia hraničných hodnôt pre CoV. Výsledky vyhodnotenia sa uložia do súboru s označením <code>*{model}*.csv</code>. Vizualizácia priebehu jednotlivých metrík podľa CoV je taktiež ukladaná do súborov s označením <code>*{model}*.png</code>.
 
 ### 1. 6. Vizualizácie
 
