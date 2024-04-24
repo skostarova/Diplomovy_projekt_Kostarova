@@ -46,7 +46,9 @@ Pomocou týchto skriptov sa ukladajú modely z každej epochy ako <code>newModel
 - [`all_parameters-shift-15-windows-45.hdf5`](https://github.com/skostarova/Diplomovy_projekt_Kostarova/blob/main/model/all_parameters-shift-15-windows-45.hdf5)
 
 ### 1. 3. Predikcie
-Na vytvorenie predikovaných hodnôt z modelov uvedených v priečinku [model](https://github.com/skostarova/Diplomovy_projekt_Kostarova/tree/main/model) slúži skript
+Na vytvorenie predikovaných hodnôt z modelov uvedených v priečinku [model](https://github.com/skostarova/Diplomovy_projekt_Kostarova/tree/main/model) slúži skript [`predict_from_best_models.ipynb`](https://github.com/skostarova/Diplomovy_projekt_Kostarova/blob/main/prediction/predict_from_best_models.ipynb). Z načítaných testovacích dát a modelu sa odpredikujú hodnoty, ktoré sa uložia do `.npy` súboru do priečinku [prediction](https://github.com/skostarova/Diplomovy_projekt_Kostarova/tree/main/prediction).
+
+V prípade opätovného trénovania a ukladania všetkých epoch je možné robiť predikcie pre modely používateľom vybraných konkrétnych epoch pomocou nasledujúcich skriptov: [`pred_autoreg.py`](https://github.com/skostarova/Diplomovy_projekt_Kostarova/blob/main/prediction/pred_autoreg.py), [`pred_multiNN.py`](https://github.com/skostarova/Diplomovy_projekt_Kostarova/blob/main/prediction/pred_multiNN.py), [`pred_multiNN_4param.py`](https://github.com/skostarova/Diplomovy_projekt_Kostarova/blob/main/prediction/pred_multiNN_4param.py).
 
 ### 1. 4. Post-processing
 
