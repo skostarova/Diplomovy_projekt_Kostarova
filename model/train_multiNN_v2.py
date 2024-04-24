@@ -1,6 +1,6 @@
 # FOR multiNN with all_parameters
 
-
+# import
 from tensorflow import keras
 from keras.preprocessing.sequence import TimeseriesGenerator
 from keras.models import Sequential
@@ -14,6 +14,7 @@ import os
 import numpy as np
 import pickle
 
+# settings
 model_name = "all_parameters"
 f_data=f"{model_name}/shift-15-windows-45"
 f_name=f"newModel/{f_data}/"
@@ -24,27 +25,16 @@ with open(f'data/{f_data}/X_train_min.npy', 'rb') as f:
     X_min = pickle.load(f)
 
 X_Phi60_Sig1=X_min["Phi60_Sig1"]
-
-
 X_PC=X_min["PC"]
-
-
 X_AsyH=X_min["AsyH"]
-
-
 X_BzGSE=X_min["BzGSE"]
-
-
 
 with open(f'data/{f_data}/X_train_hour.npy', 'rb') as f:
     X_hour = pickle.load(f)
 X_ap=X_hour["ap_index"]
 
-
-
 with open(f'data/{f_data}/y_train.npy', 'rb') as f:
     y_train = pickle.load(f)
-
 
 print("len", len(X_Phi60_Sig1), len(X_PC), len(X_ap), len(X_BzGSE), len(y_train))
 
@@ -92,12 +82,13 @@ classifier = Model(inputs=[input_ap, input_BzGSE, input_AsyH, input_PC, input_Ph
 classifier.compile(loss='mse', optimizer="adam", metrics=['mae'])  
 print(classifier.summary())
 
-
+# callbacks
 os.makedirs(f_name, exist_ok=True)
 saved_model = "/epoch-{epoch:02d}-mae-{val_mae:.4f}.hdf5"
 checkpoint = ModelCheckpoint(f_name+saved_model, monitor='val_mae', verbose=1, save_freq="epoch")
 callbacks_list = [checkpoint]
 
+# training
 history = classifier.fit(
     x=[X_ap, X_BzGSE, X_AsyH, X_PC, X_Phi60_Sig1],
     y=y_train,
